@@ -44,10 +44,10 @@
       "cells":[
          {
             "$id":"6",
-            "value":6.26,
+            "value":null,
             "type":"number",
-            "formattedValue":"6.26",
-            "rawValue":6.2597811978490636,
+            "formattedValue":null,
+            "rawValue":null,
             "formatString":"0.00"
          }
       ],
