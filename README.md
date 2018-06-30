@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
-Please fork this file or send it across as a zip file without the node_modules
+Please fork this repo or send it across as a zip file without the node_modules
 
 ## Table of Contents
 
