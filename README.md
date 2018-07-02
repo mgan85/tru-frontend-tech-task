@@ -55,7 +55,8 @@ All the metrics have a min value of 1 and a max value of 9. If the a measure has
 ## Task
 
 Your task is developing an app that:
-- Shows some placeholders when the app is in a loading state (if you don't have time for the placeholder, a relevant loading wheel will be OK).
+- Implement the "loading state" of the app. I need to be able to see a loading spinner whilst the API call is happening. Extra point if you show some placeholders when the app is in the loading state.
+- Show the metrics returned by the API. Do not show the "Calculation - Real Value" object as that is just an indication for the frontend about the kind of data that is returned.
 - Shows a header and a footer as per design. You are not expected to have the icons in the footer and header to be interactive, they are there just to complete the look and feel of the app. The background colour for the footer and header is #2bb5fd; You can find all the assets you need in ```designs/assets```.
 - Shows the data following the designs attached (please try to make is as responsive as possible and feel free to use either CSS or a library for the progress bar) with the following criteria:
     - If the metric value is:
@@ -67,7 +68,7 @@ Your task is developing an app that:
 
 It would also be great to see some tests as part of your task :) but don't worry if you are running out of time.
 
-If you are running out of time, concentrate on loading data from the API rather than making the design looks perfect.
+If you are running out of time, concentrate on loading data from the API and handle the app loading state and coloring the progress bar based on the value returned rather than making the design looks perfect.
 
 
 
