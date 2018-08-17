@@ -14,21 +14,36 @@ class Measures extends Component {
             measures: [],
             loading: true
         }
-
-        this.getData(true);
     }
 
-    getData(onlineData) {
-        let param = onlineData ? "measures?shoppingChannel=online" : "measures?shoppingChannel=instore"
+    componentDidMount() {
+        this.getData(this.props.dataSource);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.dataSource !== prevProps.dataSource) {
+            this.getData(this.props.dataSource);
+        }
+    }
+
+    getData(dataSource) {
+        //let param = onlineData ? "measures?shoppingChannel=online" : "measures?shoppingChannel=instore"
+        this.setState({loading: true});
         let config = {
                 onDownloadProgress: (pe) => {
                     let percent = pe.loaded * 100 / pe.total;
                     let elem = document.querySelector("#LoaderProgressBar");
-                    elem.style.backgroundImage = 'linear-gradient( to right, #048604, #048604 ' + percent + '%, #8f8fad ' + percent + '%)'
+                    if(elem !== null) {
+                        elem.style.backgroundImage = 'linear-gradient( to right, #048604, #048604 ' + percent + '%, #8f8fad ' + percent + '%)'
+                    }
+                    else {
+                        console.log("Upsss");
+                    }
 
                 }
             }
-        axiosMeasures.get(param, config)
+
+        axiosMeasures.get(dataSource, config)
             .then(res => {
                 this.setState({measures: res.data, loading: false})
             })

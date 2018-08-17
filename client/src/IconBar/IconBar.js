@@ -21,6 +21,7 @@ const IconBar = (props) => {
                 label={icon.label}
                 position={icon.position}
                 padding={icon.padding}
+                click={icon.click}
             />
         )
     }

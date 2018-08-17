@@ -10,7 +10,23 @@ import notificationsSrc from "./Images/notifications.svg";
 import pulseSrc from "./Images/pulse.svg";
 
 class App extends Component {
-  render() {
+   constructor() {
+       super();
+       this.state = {
+           dataSource: "measures?shoppingChannel=online"
+       }
+   }
+
+    changeData() {
+        if(this.state.dataSource === "measures?shoppingChannel=online") {
+            this.setState({dataSource: "measures?shoppingChannel=instore"});
+        }
+        else {
+            this.setState({dataSource: "measures?shoppingChannel=online"});
+        }
+    }
+
+    render() {
       let iconsForFirstIconBar = [
           {
               id:"Logo",
@@ -29,6 +45,7 @@ class App extends Component {
               id:"Calendar",
               url: calendarSrc,
               position: 'Centre',
+              click: this.changeData.bind(this)
           }
       ];
 
@@ -66,7 +83,9 @@ class App extends Component {
               color="#2bb5fd"
               icons={iconsForSecondIconBar}
           />
-        <Measures />
+        <Measures
+            dataSource={this.state.dataSource}
+        />
           <IconBar
               cssClasses="Footer"
               color="#2bb5fd"
