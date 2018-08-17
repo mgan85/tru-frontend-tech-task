@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const axiosMeasures = axios.get('http://localhost:3001/measures');
+const axiosMeasures = axios.create({baseURL: 'http://localhost:3001'});
 
 export default axiosMeasures;
 
