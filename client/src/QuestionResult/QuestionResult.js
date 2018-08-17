@@ -32,7 +32,7 @@ const questionResult = (props) => {
 
 
         switch (props.category) {
-            case "Service (Ease of use)":
+            case "Service":
                 cssClasses += "Service "
                 break;
             case "Product":
