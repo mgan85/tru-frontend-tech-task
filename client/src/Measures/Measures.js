@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Measures.css';
-import axiosMeasures from "./../Utils/axiosInstances"
-import loading from "./../Images/loading.svg"
+import axiosMeasures from "./../Utils/axiosInstances";
+import loading from "./../Images/loading.svg";
 
 /*
  * stateful component which show measures in app
@@ -34,9 +34,11 @@ class Measures extends Component {
     }
 
     createMeasureComponent () {
+
+
         return (
             <div className="Measures">
-                empty for now
+                aa
             </div>
         )
     }
