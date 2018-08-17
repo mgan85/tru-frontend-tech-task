@@ -20,7 +20,7 @@ const IconElement = (props) => {
 
     return (
         <div className={cssClasses} onClick={props.click}>
-            <img src={props.url} alt="icon" style={style}/>
+            <img src={props.url} alt="icon"/>
             {createLabel()}
         </div>
     )
