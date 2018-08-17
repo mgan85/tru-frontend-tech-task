@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Measures.css';
 import axiosMeasures from "./../Utils/axiosInstances";
-import loading from "./../Images/loading.svg";
 import QuestionResult from './../QuestionResult/QuestionResult'
+import Loader from './Loader/Loader'
 
 /*
  * stateful component which show measures in app
@@ -20,8 +20,15 @@ class Measures extends Component {
 
     getData(onlineData) {
         let param = onlineData ? "measures?shoppingChannel=online" : "measures?shoppingChannel=instore"
+        let config = {
+                onDownloadProgress: (pe) => {
+                    let percent = pe.loaded * 100 / pe.total;
+                    let elem = document.querySelector("#LoaderProgressBar");
+                    elem.style.backgroundImage = 'linear-gradient( to right, #048604, #048604 ' + percent + '%, #8f8fad ' + percent + '%)'
 
-        axiosMeasures.get(param)
+                }
+            }
+        axiosMeasures.get(param, config)
             .then(res => {
                 this.setState({measures: res.data, loading: false})
             })
@@ -29,7 +36,7 @@ class Measures extends Component {
 
     createLoader() {
         return (
-            <img src={loading} alt="loading" />
+            <Loader />
         )
     }
 
