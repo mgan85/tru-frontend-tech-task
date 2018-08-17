@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Measures.css';
 import axiosMeasures from "./../Utils/axiosInstances";
 import loading from "./../Images/loading.svg";
+import QuestionResult from './../QuestionResult/QuestionResult'
 
 /*
  * stateful component which show measures in app
@@ -10,7 +11,7 @@ class Measures extends Component {
     constructor(props) {
         super();
         this.state = {
-            data: [],
+            measures: [],
             loading: true
         }
 
@@ -21,9 +22,8 @@ class Measures extends Component {
         let param = onlineData ? "measures?shoppingChannel=online" : "measures?shoppingChannel=instore"
 
         axiosMeasures.get(param)
-            .then(data => {
-                this.setState({data: data, loading: false})
-                console.log(data);
+            .then(res => {
+                this.setState({measures: res.data, loading: false})
             })
     }
 
@@ -33,12 +33,27 @@ class Measures extends Component {
         )
     }
 
+    createQuestionResult(question) {
+        return (
+            <QuestionResult
+                key={question.$id}
+                category={question.formattedCaption}
+                downRange={1}
+                upRange={9}
+                rate={question.cells[0].value}
+                question={question.formattedCaption}
+            />
+        )
+    }
+
+    createAllQuestionResult() {
+        return this.state.measures.filter(m => m.$id > 1).map(this.createQuestionResult);
+    }
+
     createMeasureComponent () {
-
-
         return (
             <div className="Measures">
-                aa
+                {this.createAllQuestionResult()}
             </div>
         )
     }

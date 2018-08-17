@@ -1,31 +1,48 @@
 .Service {
-    border: 1px solid #AD63FF;
+    border: 3px solid #AD63FF;
  }
 
 .Product {
-    border: 1px solid #FB004A;
+    border: 3px solid #FB004A;
 }
 
 .Value {
-    border: 1px solid #FD7E09;
+    border: 3px solid #FD7E09;
 }
 
 .Recommend {
-    border: 1px solid #20F3B5;
+    border: 3px solid #20F3B5;
 }
 
 .Experience {
-    border: 1px solid #FFDC28;
+    border: 3px solid #FFDC28;
 }
 
-.Negative input.range {
-    background-color: #FF5C5C;
+.range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+
+}
+.range::-webkit-slider-thumb {
+    display: none;
 }
 
-.Neutral input.range {
-    background-color: #F5B31F;
+.QuestionResult {
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
 }
 
-.Positive input.range {
-    background-color: #62DDA9;
+.QuestionResult span {
+    display: flex;
+}
+
+.QuestionResult span > p {
+    padding: 2px;
+}
+
+.Val {
+    font-size: larger;
 }

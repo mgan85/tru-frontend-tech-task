@@ -13,7 +13,24 @@ const questionResult = (props) => {
     let cssClasses = "QuestionResult ";
     let value = props.rate || props.downRange;
 
-    let setcssClasses = () => {
+    const createProgressBarStyle = () => {
+        let percent = value * 100 / props.upRange;
+        let color;
+
+        if(props.rate < 6) {
+            color = "#FF5C5C";
+        }else if(props.rate < 8) {
+            color = "#F5B31F";
+        } else {
+            color = "#62DDA9";
+        }
+
+        return {
+            backgroundImage:  'linear-gradient( to right, ' + color + ', ' + color + ' ' + percent + '%, #e8e5ef ' + percent + '%)'
+        }
+    }
+
+
         switch (props.category) {
             case "Service (Ease of use)":
                 cssClasses += "Service "
@@ -30,38 +47,36 @@ const questionResult = (props) => {
             case "Experience":
                 cssClasses += "Experience "
                 break;
+            case "Ease of Use":
+                cssClasses += "Service "
+                break;
             default:
                 console.warn("Something goes wrong. Unknown category '" + props.category + "' for QuestionResult component");
         }
 
-        if(props.rate < 6) {
-            cssClasses += "Negative";
-        }else if(props.rate < 8) {
-            cssClasses += "Neutral";
-        } else {
-            cssClasses += "Positive";
-        }
-    }();
-
     let createText = () => {
         let fullElement = (
-            <span>
-                <input type="text" className="value" value={props.rate}/>
-                <p>out of  {props.upRange}</p>
-            </span>
+
+            <span><p className="Val">{value} </p><p>  out of {props.upRange}</p></span>
         )
 
         let emptyElement = (
-                <p>"No data for {props.question} yet"</p>
+            <p>"No data for {props.question} yet"</p>
         )
 
-        return  props.value === null ? emptyElement : fullElement;
+        return props.value === null ? emptyElement : fullElement;
     }
 
     return (
         <div className={cssClasses}>
             <label>{props.question}</label>
-            <input type="range" min={props.downRange} max={props.upRange * 100} value={props.rate * 100} className="range" disabled/>
+            <input
+                type="range"
+                style={createProgressBarStyle()}
+                min={props.downRange}
+                max={props.upRange * 100}
+                className="range"
+                disabled/>
             {createText()}
         </div>
     )
