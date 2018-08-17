@@ -1,0 +1,31 @@
+.Service {
+    border: 1px solid #AD63FF;
+ }
+
+.Product {
+    border: 1px solid #FB004A;
+}
+
+.Value {
+    border: 1px solid #FD7E09;
+}
+
+.Recommend {
+    border: 1px solid #20F3B5;
+}
+
+.Experience {
+    border: 1px solid #FFDC28;
+}
+
+.Negative input.range {
+    background-color: #FF5C5C;
+}
+
+.Neutral input.range {
+    background-color: #F5B31F;
+}
+
+.Positive input.range {
+    background-color: #62DDA9;
+}
