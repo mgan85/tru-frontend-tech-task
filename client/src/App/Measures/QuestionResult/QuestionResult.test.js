@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './QuestionResult';
+import QuestionResult from './QuestionResult';
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
-});
-
-it('changes data Source properly', () => {
 
 });
+
+it('properly create progress bar style', () => {
+
+});
+
+it('properly create css classes', () => {
+
+});
+
+it('properly create  information text', () => {
+
+});
+
