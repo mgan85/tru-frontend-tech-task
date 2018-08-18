@@ -8,7 +8,7 @@ import Loader from './Loader/Loader'
  * stateful component which show measures in app
  */
 class Measures extends Component {
-    constructor(props) {
+    constructor() {
         super();
         this.state = {
             measures: [],
