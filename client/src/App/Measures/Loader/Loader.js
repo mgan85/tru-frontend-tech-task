@@ -1,6 +1,6 @@
 import React from 'react';
 import './Loader.css';
-import loading from './../../Images/loading.svg';
+import loading from './../../../Images/loading.svg';
 
 /*
  * stateless component showing loading progress

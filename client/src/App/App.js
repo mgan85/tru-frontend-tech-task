@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Measures from './Measures/Measures'
 import IconBar from './IconBar/IconBar';
-import accountSrc from './Images/account.svg';
-import calendarSrc from './Images/calendar.svg';
-import leaderboardSrc from './Images/leaderboard.svg';
-import logoSrc from './Images/logo.svg';
-import notificationsSrc from './Images/notifications.svg';
-import pulseSrc from './Images/pulse.svg';
+import accountSrc from './../Images/account.svg';
+import calendarSrc from './../Images/calendar.svg';
+import leaderboardSrc from './../Images/leaderboard.svg';
+import logoSrc from './../Images/logo.svg';
+import notificationsSrc from './../Images/notifications.svg';
+import pulseSrc from './../Images/pulse.svg';
 
 //Stateful component represent app
 class App extends Component {

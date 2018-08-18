@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Measures.css';
-import axiosMeasures from './../Utils/axiosInstances';
-import QuestionResult from './../QuestionResult/QuestionResult'
+import axiosMeasures from './../../Utils/axiosInstances';
+import QuestionResult from './QuestionResult/QuestionResult'
 import Loader from './Loader/Loader'
 
 /*
