@@ -27,3 +27,7 @@
 .WithLabel {
     display: inline-grid;
 }
+
+.WithLabel label {
+    padding: 5px;
+}

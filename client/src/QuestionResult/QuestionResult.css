@@ -25,6 +25,7 @@
     border-radius: 5px;
 
 }
+
 .range::-webkit-slider-thumb {
     display: none;
 }

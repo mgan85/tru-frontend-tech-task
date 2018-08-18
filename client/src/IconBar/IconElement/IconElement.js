@@ -1,5 +1,5 @@
-import React from "react";
-import "./IconElement.css";
+import React from 'react';
+import './IconElement.css';
 
 /*
  * Stateless component represent icon
@@ -9,9 +9,11 @@ import "./IconElement.css";
  * props.position - icon position (left/ centre/ right)
  */
 const IconElement = (props) => {
+    //Setting css classes depending on props
     let cssClasses = "Icon " + props.position || "Left";
     cssClasses += props.label !== undefined ? " WithLabel" : "";
 
+    //Function create optional label
     let createLabel = () => {
         return (
             props.label !== undefined ? <label>{props.label}</label> : null

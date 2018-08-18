@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Measures.css';
-import axiosMeasures from "./../Utils/axiosInstances";
+import axiosMeasures from './../Utils/axiosInstances';
 import QuestionResult from './../QuestionResult/QuestionResult'
 import Loader from './Loader/Loader'
 
@@ -16,45 +16,62 @@ class Measures extends Component {
         }
     }
 
+    //After mounting we download data
     componentDidMount() {
         this.getData(this.props.dataSource);
     }
 
+    /*
+     * After updating component we check if data source was changed
+     * If this happen we download new data
+     */
     componentDidUpdate(prevProps) {
         if (this.props.dataSource !== prevProps.dataSource) {
             this.getData(this.props.dataSource);
         }
     }
 
+    /*
+     * Function download data. In middle downlading we show loader
+     * dataSource - from where we take data
+     */
     getData(dataSource) {
-        //let param = onlineData ? "measures?shoppingChannel=online" : "measures?shoppingChannel=instore"
         this.setState({loading: true});
-        let config = {
-                onDownloadProgress: (pe) => {
-                    let percent = pe.loaded * 100 / pe.total;
-                    let elem = document.querySelector("#LoaderProgressBar");
-                    if(elem !== null) {
-                        elem.style.backgroundImage = 'linear-gradient( to right, #048604, #048604 ' + percent + '%, #8f8fad ' + percent + '%)'
-                    }
-                    else {
-                        console.log("Upsss");
-                    }
 
+        /*
+         * Object with configuration for axios, which allow us
+         * tracking downloading progress
+         */
+        let config = {
+            onDownloadProgress: (pe) => {
+                let percent = pe.loaded * 100 / pe.total;
+                let elem = document.querySelector("#LoaderProgressBar");
+                if (elem !== null) {
+                    elem.style.backgroundImage = "linear-gradient( to right, #048604, #048604 " + percent + "%, #8f8fad " + percent + "%)";
                 }
+                else {
+                    console.error("Can't find element represent loader");
+                }
+
             }
+        }
 
         axiosMeasures.get(dataSource, config)
             .then(res => {
-                this.setState({measures: res.data, loading: false})
+                this.setState({measures: res.data, loading: false});
             })
     }
 
+    //Function create Loader component
     createLoader() {
         return (
-            <Loader />
+            <Loader
+                id={"LoaderProgressBar"}
+            />
         )
     }
 
+    //Function create component showing result for one question
     createQuestionResult(question) {
         return (
             <QuestionResult
@@ -68,11 +85,16 @@ class Measures extends Component {
         )
     }
 
+    /*
+     * Function create components for all measures except first which is just an
+     * indication for the frontend about the kind of data that is returned
+     */
     createAllQuestionResult() {
         return this.state.measures.filter(m => m.$id > 1).map(this.createQuestionResult);
     }
 
-    createMeasureComponent () {
+    //Function create component with measures
+    createMeasureComponent() {
         return (
             <div className="Measures">
                 {this.createAllQuestionResult()}

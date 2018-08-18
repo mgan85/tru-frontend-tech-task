@@ -8,11 +8,16 @@ import IconElement from './IconElement/IconElement';
  * props.color - background color for bar
  */
 const IconBar = (props) => {
+    //Setting css rules depending on props
     let cssClasses = "IconBar " + props.cssClasses;
     const style = {
         backgroundColor: props.color
     };
 
+    /*
+     * Function create one icon component
+     * icon - object with configuration
+     */
     let createIconElemnt = icon => {
         return (
             <IconElement
@@ -26,13 +31,14 @@ const IconBar = (props) => {
         )
     }
 
+    //Function generate all icons for bar
     let createAllIconElements = () => {
         return props.icons.map(createIconElemnt);
     }
 
-    return(
+    return (
         <div className={cssClasses} style={style}>
-             {createAllIconElements()}
+            {createAllIconElements()}
         </div>
 
     )
