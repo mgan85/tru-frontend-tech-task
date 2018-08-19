@@ -7,6 +7,7 @@ import QuestionResult from './QuestionResult/QuestionResult';
 
 configure({ adapter: new Adapter() });
 
+//TODO: Create this test after learn more about async test
 describe('Tests for Measures component', () => {
   /*let wrapper, instance;
     beforeEach(() => {

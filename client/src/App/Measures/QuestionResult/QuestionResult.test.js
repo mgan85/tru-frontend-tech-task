@@ -5,6 +5,7 @@ import QuestionResult from './QuestionResult';
 
 configure({ adapter: new Adapter() });
 
+//TODO: Why props category is undefined?
 describe('Tests for IconElement component', () => {
   let wrapper;
   beforeEach(() => {
